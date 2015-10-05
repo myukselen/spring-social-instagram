@@ -4,7 +4,6 @@ import java.net.URI;
 import java.util.Collections;
 import java.util.Map;
 
-import org.springframework.social.MissingAuthorizationException;
 import org.springframework.social.support.URIBuilder;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -35,7 +34,7 @@ public abstract class AbstractInstagramOperations {
 	
 	protected void requireUserAuthorization() {
 		if(!isAuthorized) {
-			throw new MissingAuthorizationException();
+			throw new IllegalStateException("new MissingAuthorizationException()");
 		}
 	}
 	
