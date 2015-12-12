@@ -7,11 +7,11 @@
 
 	<groupId>org.springframework.social</groupId>
 	<artifactId>spring-social-instagram</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.0.RELEASE</version>
 	<packaging>jar</packaging>
 
-	<name>Spring Social Instagram</name>
-	<url>http://projects.spring.io/spring-social/</url>
+	<name>Instagram API</name>
+	<url>https://github.com/willchinelato/spring-social-instagram/</url>
 
 	<properties>
 		<jackson.version>2.5.1</jackson.version>
