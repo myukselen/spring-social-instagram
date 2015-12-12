@@ -1,3 +1,0 @@
-Spring Social Instagram 1.0.0 Milestone 1 (June 8th, 2011)
-==========================================================
- - Extracted Spring Social Instagram module from core Spring Social project.
