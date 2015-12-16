@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.social.instagram.api.Instagram;
 import org.springframework.social.instagram.api.LocationOperations;
 import org.springframework.social.instagram.api.MediaOperations;
