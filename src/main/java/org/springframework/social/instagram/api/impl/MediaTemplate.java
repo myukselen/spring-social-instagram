@@ -16,15 +16,14 @@ import org.springframework.util.MultiValueMap;
  */
 public class MediaTemplate extends AbstractInstagramOperations implements MediaOperations {
 
-	
 	public MediaTemplate(InstagramTemplate instagram, boolean isAuthorizedForUser) {
 		super(instagram, isAuthorizedForUser);
 	}
-	
+
 	public void addComment(long mediaId, String text) {
 		requireUserAuthorization();
-		MultiValueMap<String,String> params = new LinkedMultiValueMap<String, String>();
-        params.add("text", text);
+		MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
+		params.add("text", text);
 		post(buildUri(MEDIA_ENDPOINT + Long.toString(mediaId) + "/comments/"), params, Map.class);
 	}
 
@@ -52,7 +51,7 @@ public class MediaTemplate extends AbstractInstagramOperations implements MediaO
 	}
 
 	public Media getMedia(long mediaId) {
-		return get(buildUri(MEDIA_ENDPOINT + Long.toString(mediaId)+ "/"), MediaContainer.class).getObject();
+		return get(buildUri(MEDIA_ENDPOINT + Long.toString(mediaId) + "/"), MediaContainer.class).getObject();
 	}
 
 	public List<Media> getPopular() {
@@ -68,12 +67,15 @@ public class MediaTemplate extends AbstractInstagramOperations implements MediaO
 	}
 
 	public List<Media> search(double latitude, double longitude, long maxTimeStamp, long minTimeStamp, int distance) {
-		Map<String,String> params = new HashMap<String, String>();
+		Map<String, String> params = new HashMap<String, String>();
 		params.put("lat", Double.toString(latitude));
 		params.put("lng", Double.toString(longitude));
-		if(maxTimeStamp > 0) params.put("max_timestamp", Long.toString(maxTimeStamp));
-		if(minTimeStamp > 0) params.put("min_timestamp", Long.toString(minTimeStamp));
-		if(distance > 0) params.put("distance", Integer.toString(distance));
+		if (maxTimeStamp > 0)
+			params.put("max_timestamp", Long.toString(maxTimeStamp));
+		if (minTimeStamp > 0)
+			params.put("min_timestamp", Long.toString(minTimeStamp));
+		if (distance > 0)
+			params.put("distance", Integer.toString(distance));
 		return get(buildUri(MEDIA_ENDPOINT + "search/", params), MediaList.class).getList();
 	}
 

@@ -35,7 +35,7 @@ public class InstagramAdapter implements ApiAdapter<Instagram> {
 	}
 
 	public void updateStatus(Instagram instagram, String message) {
-		// 
+		//
 	}
 
 }

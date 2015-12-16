@@ -3,12 +3,12 @@ package org.springframework.social.instagram.api;
 import java.util.Date;
 
 public class Caption {
-	
+
 	private long id;
 	private Date createdTime;
 	private String text;
 	private InstagramProfile from;
-	
+
 	public Caption(long id, Date createdTime, String text, InstagramProfile from) {
 		this.id = id;
 		this.createdTime = createdTime;

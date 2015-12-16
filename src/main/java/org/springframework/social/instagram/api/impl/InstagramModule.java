@@ -18,23 +18,24 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 
 public class InstagramModule extends SimpleModule {
 
-    public InstagramModule() {
-        super(InstagramModule.class.getName(), new Version(1, 0, 0, null));
-    }
+	public InstagramModule() {
+		super(InstagramModule.class.getName(), new Version(1, 0, 0, null, "org.springframework.social", "spring-social-instagram"));
+	}
 
-    @Override public void setupModule(SetupContext context) {
-        context.setMixInAnnotations(Caption.class, CaptionMixin.class);
-        context.setMixInAnnotations(Comment.class, CommentMixin.class);
-        context.setMixInAnnotations(CommentsInfo.class, CommentsInfoMixin.class);
-        context.setMixInAnnotations(Image.class, ImageMixin.class);
-        context.setMixInAnnotations(InstagramProfile.class, InstagramProfileMixin.class);
-        context.setMixInAnnotations(LikesInfo.class, LikesInfoMixin.class);
-        context.setMixInAnnotations(Location.class, LocationMixin.class);
-        context.setMixInAnnotations(Media.class, MediaMixin.class);
-        context.setMixInAnnotations(PagedMediaList.class, PagedMediaListMixin.class);
-        context.setMixInAnnotations(Pagination.class, PaginationMixin.class);
-        context.setMixInAnnotations(Relationship.class, RelationshipMixin.class);
-        context.setMixInAnnotations(Tag.class, TagMixin.class);
-    }
+	@Override
+	public void setupModule(final SetupContext context) {
+		context.setMixInAnnotations(Caption.class, CaptionMixin.class);
+		context.setMixInAnnotations(Comment.class, CommentMixin.class);
+		context.setMixInAnnotations(CommentsInfo.class, CommentsInfoMixin.class);
+		context.setMixInAnnotations(Image.class, ImageMixin.class);
+		context.setMixInAnnotations(InstagramProfile.class, InstagramProfileMixin.class);
+		context.setMixInAnnotations(LikesInfo.class, LikesInfoMixin.class);
+		context.setMixInAnnotations(Location.class, LocationMixin.class);
+		context.setMixInAnnotations(Media.class, MediaMixin.class);
+		context.setMixInAnnotations(PagedMediaList.class, PagedMediaListMixin.class);
+		context.setMixInAnnotations(Pagination.class, PaginationMixin.class);
+		context.setMixInAnnotations(Relationship.class, RelationshipMixin.class);
+		context.setMixInAnnotations(Tag.class, TagMixin.class);
+	}
 
 }

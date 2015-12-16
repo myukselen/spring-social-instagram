@@ -21,7 +21,7 @@ public class InstagramOAuth2Template extends OAuth2Template {
 		super(clientId, clientSecret, "https://api.instagram.com/oauth/authorize", "https://api.instagram.com/oauth/access_token");
 		this.setUseParametersForClientAuthentication(true);
 	}
-	
+
 	@Override
 	protected RestTemplate createRestTemplate() {
 		RestTemplate restTemplate = new RestTemplate(ClientHttpRequestFactorySelector.getRequestFactory());
@@ -30,23 +30,23 @@ public class InstagramOAuth2Template extends OAuth2Template {
 				return true;
 			}
 		};
-		restTemplate.setMessageConverters(Collections.<HttpMessageConverter<?>>singletonList(messageConverter));
+		restTemplate.setMessageConverters(Collections.<HttpMessageConverter<?>> singletonList(messageConverter));
 		return restTemplate;
 	}
-	
+
 	@Override
-	@SuppressWarnings("unchecked")	
+	@SuppressWarnings("unchecked")
 	protected AccessGrant postForAccessGrant(String accessTokenUrl, MultiValueMap<String, String> parameters) {
 		// TODO: Look into weird JSON response bug.
-		Map<String,Object> response = getRestTemplate().postForObject(accessTokenUrl, parameters, Map.class);
-		Entry<String,Object> entry = response.entrySet().iterator().next();
+		Map<String, Object> response = getRestTemplate().postForObject(accessTokenUrl, parameters, Map.class);
+		Entry<String, Object> entry = response.entrySet().iterator().next();
 		String jsonString = entry.getKey();
 		ObjectMapper mapper = new ObjectMapper();
 		Map<String, String> response2 = null;
 		try {
 			response2 = mapper.readValue(jsonString, Map.class);
 		} catch (Exception e) {
-			
+
 		}
 		String accessToken = response2.get("access_token");
 		return new AccessGrant(accessToken, null, null, null);

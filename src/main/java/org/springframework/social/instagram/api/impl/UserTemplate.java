@@ -16,7 +16,7 @@ import org.springframework.util.MultiValueMap;
  * Implementation of {@link UserOperations}, providing a binding to Instagram's user-oriented REST resources.
  */
 public class UserTemplate extends AbstractInstagramOperations implements UserOperations {
-	
+
 	public UserTemplate(InstagramTemplate instagram, boolean isAuthorizedForUser) {
 		super(instagram, isAuthorizedForUser);
 	}
@@ -33,12 +33,14 @@ public class UserTemplate extends AbstractInstagramOperations implements UserOpe
 	public PagedMediaList getFeed() {
 		return getFeed(0, 0);
 	}
-	
+
 	public PagedMediaList getFeed(long maxId, long minId) {
 		requireUserAuthorization();
-		Map<String,String> params = new HashMap<String, String>();
-		if(maxId > 0) params.put("max_id", Long.toString(maxId));
-		if(minId > 0) params.put("min_id", Long.toString(minId));
+		Map<String, String> params = new HashMap<String, String>();
+		if (maxId > 0)
+			params.put("max_id", Long.toString(maxId));
+		if (minId > 0)
+			params.put("min_id", Long.toString(minId));
 		return get(buildUri(USERS_ENDPOINT + "self/feed/", params), PagedMediaList.class);
 	}
 
@@ -47,11 +49,15 @@ public class UserTemplate extends AbstractInstagramOperations implements UserOpe
 	}
 
 	public PagedMediaList getRecentMedia(long userId, long maxId, long minId, long minTimestamp, long maxTimestamp) {
-		Map<String,String> params = new HashMap<String, String>();
-		if(maxId > 0) params.put("max_id", Long.toString(maxId));
-		if(maxId > 0) params.put("max_id", Long.toString(maxId));
-		if(minTimestamp > 0) params.put("min_timestamp", Long.toString(minTimestamp));
-		if(maxTimestamp > 0) params.put("max_timestamp", Long.toString(maxTimestamp));
+		Map<String, String> params = new HashMap<String, String>();
+		if (maxId > 0)
+			params.put("max_id", Long.toString(maxId));
+		if (maxId > 0)
+			params.put("max_id", Long.toString(maxId));
+		if (minTimestamp > 0)
+			params.put("min_timestamp", Long.toString(minTimestamp));
+		if (maxTimestamp > 0)
+			params.put("max_timestamp", Long.toString(maxTimestamp));
 		return get(buildUri(USERS_ENDPOINT + Long.toString(userId) + "/media/recent/", params), PagedMediaList.class);
 	}
 
@@ -100,14 +106,12 @@ public class UserTemplate extends AbstractInstagramOperations implements UserOpe
 	public void denyUser(long userId) {
 		modifyRelationship(userId, "deny");
 	}
-	
+
 	private void modifyRelationship(long userId, String action) {
 		requireUserAuthorization();
-		MultiValueMap<String,String> params = new LinkedMultiValueMap<String, String>();
+		MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
 		params.add("action", action);
 		post(buildUri(USERS_ENDPOINT + Long.toString(userId) + "/relationship/"), params, Map.class);
 	}
-	
-	
-	
+
 }

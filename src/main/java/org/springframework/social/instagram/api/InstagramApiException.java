@@ -7,7 +7,7 @@ public class InstagramApiException extends SocialException {
 
 	private int code;
 	private String errorType;
-	
+
 	public InstagramApiException(int code, String errorType, String message) {
 		super(message);
 		this.code = code;
@@ -21,5 +21,5 @@ public class InstagramApiException extends SocialException {
 	public String getErrorType() {
 		return errorType;
 	}
-	
+
 }

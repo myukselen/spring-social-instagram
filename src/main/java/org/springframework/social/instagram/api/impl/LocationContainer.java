@@ -9,18 +9,17 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-@JsonDeserialize(using=LocationContainer.LocationContainerDeseriazlier.class)
+@JsonDeserialize(using = LocationContainer.LocationContainerDeseriazlier.class)
 public class LocationContainer extends AbstractInstagramResponseContainer<Location> {
 
-    public static class LocationContainerDeseriazlier extends AbstractInstagramDeserializer<LocationContainer> {
-        @Override 
-        public LocationContainer deserialize(JsonParser jp, DeserializationContext ctxt) 
-                throws IOException, JsonProcessingException {
-            return deserializeResponseObject(jp, LocationContainer.class, Location.class);
-        }
-    }
-    
-    public LocationContainer(Location location) {
-        super(location);
-    }
+	public static class LocationContainerDeseriazlier extends AbstractInstagramDeserializer<LocationContainer> {
+		@Override
+		public LocationContainer deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+			return deserializeResponseObject(jp, LocationContainer.class, Location.class);
+		}
+	}
+
+	public LocationContainer(Location location) {
+		super(location);
+	}
 }

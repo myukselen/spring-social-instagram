@@ -10,10 +10,9 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 
 public class TagContainerDeserializer extends AbstractInstagramDeserializer<TagContainer> {
 
-    @Override 
-    public TagContainer deserialize(JsonParser jp, DeserializationContext ctxt) 
-            throws IOException, JsonProcessingException {
-        return deserializeResponseObject(jp, TagContainer.class, Tag.class);
-    }
-    
+	@Override
+	public TagContainer deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+		return deserializeResponseObject(jp, TagContainer.class, Tag.class);
+	}
+
 }

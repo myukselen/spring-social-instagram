@@ -9,25 +9,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Mixin class for adding Jackson annotations to InstagramProfile.
  */
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 abstract class InstagramProfileMixin {
-    @JsonCreator
-    InstagramProfileMixin(
-            @JsonProperty("id") long id, 
-            @JsonProperty("username") String username, 
-            @JsonProperty("full_name") String fullName, 
-            @JsonProperty("profile_picture") String profilePictureUrl, 
-            @JsonProperty("counts") Map<String,Integer> counts) {}
-    
-    @JsonProperty("bio")
-    String bio;
-    
-    @JsonProperty("website")
-    String website;
-    
-    @JsonProperty("first_name")
-    String firstName;
-    
-    @JsonProperty("last_name")
-    String lastName;
+	@JsonCreator
+	InstagramProfileMixin(@JsonProperty("id") long id,
+			@JsonProperty("username") String username,
+			@JsonProperty("full_name") String fullName,
+			@JsonProperty("profile_picture") String profilePictureUrl,
+			@JsonProperty("counts") Map<String, Integer> counts) {
+	}
+
+	@JsonProperty("bio")
+	String bio;
+
+	@JsonProperty("website")
+	String website;
+
+	@JsonProperty("first_name")
+	String firstName;
+
+	@JsonProperty("last_name")
+	String lastName;
 }

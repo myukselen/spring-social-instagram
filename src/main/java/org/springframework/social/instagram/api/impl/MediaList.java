@@ -8,16 +8,16 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MediaList {
-	
+
 	private List<Media> list;
-	
+
 	@JsonCreator
 	public MediaList(@JsonProperty("data") List<Media> list) {
 		this.list = list;
 	}
-	
+
 	public List<Media> getList() {
 		return list;
 	}

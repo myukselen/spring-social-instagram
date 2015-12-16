@@ -8,16 +8,16 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class InstagramProfileList {
-	
+
 	private List<InstagramProfile> list;
-	
+
 	@JsonCreator
 	public InstagramProfileList(@JsonProperty("data") List<InstagramProfile> list) {
 		this.list = list;
 	}
-	
+
 	public List<InstagramProfile> getList() {
 		return list;
 	}

@@ -11,8 +11,7 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 public class InstagramDateDeserializer extends JsonDeserializer<Date> {
 
 	@Override
-	public Date deserialize(JsonParser jp, DeserializationContext ctxt)
-			throws IOException, JsonProcessingException {
-        return new Date(Long.valueOf(jp.getText()));
+	public Date deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+		return new Date(Long.valueOf(jp.getText()));
 	}
 }

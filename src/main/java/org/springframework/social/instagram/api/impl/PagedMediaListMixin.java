@@ -9,10 +9,9 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 abstract class PagedMediaListMixin {
-    @JsonCreator
-    PagedMediaListMixin(
-            @JsonProperty("data") List<Media> media,
-            @JsonProperty("pagination") Pagination pagination){}
+	@JsonCreator
+	PagedMediaListMixin(@JsonProperty("data") List<Media> media, @JsonProperty("pagination") Pagination pagination) {
+	}
 }
