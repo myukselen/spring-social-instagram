@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class Media {
 
-	private long id;
+	private String id;
 	private String filter;
 	private String link;
 	private Caption caption;
@@ -19,18 +19,23 @@ public class Media {
 	private LikesInfo likes;
 	private CommentsInfo comments;
 
-	public Media(long id,
-			String filter,
-			String link,
-			Caption caption,
-			InstagramProfile user,
-			Location location,
-			Date createdTime,
-			boolean userHasLiked,
-			Map<String, Image> images,
-			List<String> tags,
-			LikesInfo likes,
-			CommentsInfo comments) {
+
+	public Media() {
+		super();
+	}
+
+	public Media(final String id,
+			final String filter,
+			final String link,
+			final Caption caption,
+			final InstagramProfile user,
+			final Location location,
+			final Date createdTime,
+			final boolean userHasLiked,
+			final Map<String, Image> images,
+			final List<String> tags,
+			final LikesInfo likes,
+			final CommentsInfo comments) {
 
 		this.id = id;
 		this.filter = filter;
@@ -46,51 +51,100 @@ public class Media {
 		this.comments = comments;
 	}
 
-	public long getId() {
+	public String getId() {
 		return id;
+	}
+
+	public void setId(final String id) {
+		this.id = id;
 	}
 
 	public String getFilter() {
 		return filter;
 	}
 
+	public void setFilter(final String filter) {
+		this.filter = filter;
+	}
+
 	public String getLink() {
 		return link;
+	}
+
+	public void setLink(final String link) {
+		this.link = link;
 	}
 
 	public Caption getCaption() {
 		return caption;
 	}
 
+	public void setCaption(final Caption caption) {
+		this.caption = caption;
+	}
+
 	public InstagramProfile getUser() {
 		return user;
+	}
+
+	public void setUser(final InstagramProfile user) {
+		this.user = user;
 	}
 
 	public Location getLocation() {
 		return location;
 	}
 
+	public void setLocation(final Location location) {
+		this.location = location;
+	}
+
 	public Date getCreatedTime() {
 		return createdTime;
+	}
+
+	public void setCreatedTime(final Date createdTime) {
+		this.createdTime = createdTime;
 	}
 
 	public boolean isUserHasLiked() {
 		return userHasLiked;
 	}
 
+	public void setUserHasLiked(final boolean userHasLiked) {
+		this.userHasLiked = userHasLiked;
+	}
+
 	public Map<String, Image> getImages() {
 		return images;
+	}
+
+	public void setImages(final Map<String, Image> images) {
+		this.images = images;
 	}
 
 	public List<String> getTags() {
 		return tags;
 	}
 
+	public void setTags(final List<String> tags) {
+		this.tags = tags;
+	}
+
 	public LikesInfo getLikes() {
 		return likes;
+	}
+
+	public void setLikes(final LikesInfo likes) {
+		this.likes = likes;
 	}
 
 	public CommentsInfo getComments() {
 		return comments;
 	}
+
+	public void setComments(final CommentsInfo comments) {
+		this.comments = comments;
+	}
+
 }

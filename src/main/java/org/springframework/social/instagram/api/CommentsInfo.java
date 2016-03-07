@@ -4,10 +4,14 @@ import java.util.List;
 
 public class CommentsInfo {
 
-	private final int total;
-	private final List<Comment> list;
+	private int total;
+	private List<Comment> list;
 
-	public CommentsInfo(int total, List<Comment> list) {
+	public CommentsInfo() {
+
+	}
+
+	public CommentsInfo(final int total, final List<Comment> list) {
 		this.total = total;
 		this.list = list;
 	}
@@ -18,5 +22,13 @@ public class CommentsInfo {
 
 	public List<Comment> getList() {
 		return list;
+	}
+
+	public void setTotal(final int total) {
+		this.total = total;
+	}
+
+	public void setList(final List<Comment> list) {
+		this.list = list;
 	}
 }

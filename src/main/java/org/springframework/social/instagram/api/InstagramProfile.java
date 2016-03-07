@@ -4,17 +4,21 @@ import java.util.Map;
 
 public class InstagramProfile {
 
-	private final long id;
-	private final String profilePictureUrl;
-	private final String username;
-	private final Map<String, Integer> counts;
-	private final String fullName;
+	private long id;
+	private String profilePictureUrl;
+	private String username;
+	private Map<String, Integer> counts;
+	private String fullName;
 	private String bio;
 	private String website;
 	private String firstName;
 	private String lastName;
 
-	public InstagramProfile(long id, String username, String fullName, String profilePictureUrl, Map<String, Integer> counts) {
+	public InstagramProfile() {
+
+	}
+
+	public InstagramProfile(final long id, final String username, final String fullName, final String profilePictureUrl, final Map<String, Integer> counts) {
 		this.id = id;
 		this.username = username;
 		this.fullName = fullName;
@@ -69,4 +73,21 @@ public class InstagramProfile {
 	public String getLastName() {
 		return lastName;
 	}
+
+	public void setBio(final String bio) {
+		this.bio = bio;
+	}
+
+	public void setWebsite(final String website) {
+		this.website = website;
+	}
+
+	public void setFirstName(final String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setLastName(final String lastName) {
+		this.lastName = lastName;
+	}
+
 }

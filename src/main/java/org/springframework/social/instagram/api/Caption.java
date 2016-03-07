@@ -9,7 +9,11 @@ public class Caption {
 	private String text;
 	private InstagramProfile from;
 
-	public Caption(long id, Date createdTime, String text, InstagramProfile from) {
+	public Caption() {
+
+	}
+
+	public Caption(final long id, final Date createdTime, final String text, final InstagramProfile from) {
 		this.id = id;
 		this.createdTime = createdTime;
 		this.text = text;
@@ -31,4 +35,21 @@ public class Caption {
 	public InstagramProfile getFrom() {
 		return from;
 	}
+
+	public void setId(final long id) {
+		this.id = id;
+	}
+
+	public void setCreatedTime(final Date createdTime) {
+		this.createdTime = createdTime;
+	}
+
+	public void setText(final String text) {
+		this.text = text;
+	}
+
+	public void setFrom(final InstagramProfile from) {
+		this.from = from;
+	}
+
 }
