@@ -6,6 +6,9 @@ import java.util.Map;
 
 public class Media {
 
+	public static final String VIDEO = "video";
+	public static final String IMAGE = "image";
+
 	private String id;
 	private String filter;
 	private String link;
@@ -15,10 +18,11 @@ public class Media {
 	private Date createdTime;
 	private boolean userHasLiked;
 	private Map<String, Image> images;
+	private Map<String, Video> videos;
 	private List<String> tags;
+	private String type;
 	private LikesInfo likes;
 	private CommentsInfo comments;
-
 
 	public Media() {
 		super();
@@ -33,6 +37,7 @@ public class Media {
 			final Date createdTime,
 			final boolean userHasLiked,
 			final Map<String, Image> images,
+			final Map<String, Video> videos,
 			final List<String> tags,
 			final LikesInfo likes,
 			final CommentsInfo comments) {
@@ -46,6 +51,7 @@ public class Media {
 		this.createdTime = createdTime;
 		this.userHasLiked = userHasLiked;
 		this.images = images;
+		this.videos = videos;
 		this.tags = tags;
 		this.likes = likes;
 		this.comments = comments;
@@ -145,6 +151,22 @@ public class Media {
 
 	public void setComments(final CommentsInfo comments) {
 		this.comments = comments;
+	}
+
+	public Map<String, Video> getVideos() {
+		return videos;
+	}
+
+	public void setVideos(final Map<String, Video> videos) {
+		this.videos = videos;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(final String type) {
+		this.type = type;
 	}
 
 }
