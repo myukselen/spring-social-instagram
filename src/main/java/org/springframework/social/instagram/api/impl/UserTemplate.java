@@ -45,19 +45,15 @@ public class UserTemplate extends AbstractInstagramOperations implements UserOpe
 	}
 
 	public PagedMediaList getRecentMedia(long userId) {
-		return getRecentMedia(userId, 0, 0, 0, 0);
+		return getRecentMedia(userId, 0, 0);
 	}
 
-	public PagedMediaList getRecentMedia(long userId, long maxId, long minId, long minTimestamp, long maxTimestamp) {
+	public PagedMediaList getRecentMedia(long userId, long maxId, long minId) {
 		Map<String, String> params = new HashMap<String, String>();
 		if (maxId > 0)
 			params.put("max_id", Long.toString(maxId));
-		if (maxId > 0)
-			params.put("max_id", Long.toString(maxId));
-		if (minTimestamp > 0)
-			params.put("min_timestamp", Long.toString(minTimestamp));
-		if (maxTimestamp > 0)
-			params.put("max_timestamp", Long.toString(maxTimestamp));
+		if (minId > 0)
+			params.put("min_id", Long.toString(minId));
 		return get(buildUri(USERS_ENDPOINT + Long.toString(userId) + "/media/recent/", params), PagedMediaList.class);
 	}
 
