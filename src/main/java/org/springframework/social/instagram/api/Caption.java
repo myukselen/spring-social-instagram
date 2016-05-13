@@ -2,9 +2,12 @@ package org.springframework.social.instagram.api;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Caption {
 
 	private long id;
+	@JsonProperty("created_time")
 	private Date createdTime;
 	private String text;
 	private InstagramProfile from;

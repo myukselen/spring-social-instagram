@@ -2,16 +2,22 @@ package org.springframework.social.instagram.api;
 
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class InstagramProfile {
 
 	private long id;
+	@JsonProperty("profile_picture")
 	private String profilePictureUrl;
 	private String username;
 	private Map<String, Integer> counts;
+	@JsonProperty("full_name")
 	private String fullName;
 	private String bio;
 	private String website;
+	@JsonProperty("first_name")
 	private String firstName;
+    @JsonProperty("last_name")
 	private String lastName;
 
 	public InstagramProfile() {

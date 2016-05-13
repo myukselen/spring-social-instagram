@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Media {
 
 	public static final String VIDEO = "video";
@@ -15,6 +17,7 @@ public class Media {
 	private Caption caption;
 	private InstagramProfile user;
 	private Location location;
+	@JsonProperty("created_time")
 	private Date createdTime;
 	private boolean userHasLiked;
 	private Map<String, Image> images;
