@@ -11,7 +11,7 @@
 	<packaging>jar</packaging>
 
 	<name>Instagram API</name>
-	<url>https://github.com/willchinelato/spring-social-instagram/</url>
+	<url>https://github.com/kevinholcom/spring-social-instagram/</url>
 
 	<properties>
 		<jackson.version>2.5.1</jackson.version>
