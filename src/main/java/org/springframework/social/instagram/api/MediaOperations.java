@@ -62,7 +62,9 @@ public interface MediaOperations {
 	 * Get a list of what media is most popular at the moment.
 	 * 
 	 * @return A list of media
+	 * @deprecated instagram has no such API
 	 */
+	@Deprecated
 	List<Media> getPopular();
 
 	/**

@@ -20,6 +20,7 @@ public class MediaTemplate extends AbstractInstagramOperations implements MediaO
 		super(instagram, isAuthorizedForUser);
 	}
 
+	@Override
 	public void addComment(long mediaId, String text) {
 		requireUserAuthorization();
 		MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
@@ -27,46 +28,59 @@ public class MediaTemplate extends AbstractInstagramOperations implements MediaO
 		post(buildUri(MEDIA_ENDPOINT + Long.toString(mediaId) + "/comments/"), params, Map.class);
 	}
 
+	@Override
 	public void addLike(long mediaId) {
 		requireUserAuthorization();
 		post(buildUri(MEDIA_ENDPOINT + Long.toString(mediaId) + "/likes/"), new LinkedMultiValueMap<String, String>(), Map.class);
 	}
 
+	@Override
 	public void deleteComment(long mediaId, long commentId) {
 		requireUserAuthorization();
 		delete(buildUri(MEDIA_ENDPOINT + Long.toString(mediaId) + "/comments/" + Long.toString(commentId) + "/"));
 	}
 
+	@Override
 	public void deleteLike(long mediaId) {
 		requireUserAuthorization();
 		delete(buildUri(MEDIA_ENDPOINT + Long.toString(mediaId) + "/likes/"));
 	}
 
+	@Override
 	public List<Comment> getComments(long mediaId) {
 		return get(buildUri(MEDIA_ENDPOINT + Long.toString(mediaId) + "/comments/"), CommentList.class).getList();
 	}
 
+	@Override
 	public List<InstagramProfile> getLikes(long mediaId) {
 		return get(buildUri(MEDIA_ENDPOINT + Long.toString(mediaId) + "/likes/"), InstagramProfileList.class).getList();
 	}
 
+	@Override
 	public Media getMedia(long mediaId) {
 		return get(buildUri(MEDIA_ENDPOINT + Long.toString(mediaId) + "/"), MediaContainer.class).getObject();
 	}
 
+	@Override
+	@Deprecated
 	public List<Media> getPopular() {
-		return get(buildUri(MEDIA_ENDPOINT + "popular/"), MediaList.class).getList();
+		// TODO check it
+		return get(buildUri(MEDIA_ENDPOINT + "search/"), MediaList.class).getList();
 	}
 
+	@Override
 	public List<Media> search(double latitude, double longitude) {
 		return search(latitude, longitude, 0, 0, 0);
 	}
 
+	@Override
 	public List<Media> search(double latitude, double longitude, int distance) {
 		return search(latitude, longitude, 0, 0, distance);
 	}
 
+	@Override
 	public List<Media> search(double latitude, double longitude, long maxTimeStamp, long minTimeStamp, int distance) {
+		// TODO check max_timestamp & min_timestamp, 'em not documented
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("lat", Double.toString(latitude));
 		params.put("lng", Double.toString(longitude));
