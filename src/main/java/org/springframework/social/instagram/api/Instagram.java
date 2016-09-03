@@ -10,21 +10,25 @@ public interface Instagram extends ApiBinding {
 
 	/**
 	 * Returns the portion of the Instagram API that handles tag operations
+	 * @return tag operations
 	 */
 	TagOperations tagOperations();
 
 	/**
 	 * Returns the portion of the Instagram API that handles location operations
+	 * @return location operations
 	 */
 	LocationOperations locationOperations();
 
 	/**
 	 * Returns the portion of the Instagram API that handles media operations
+	 * @return media operations
 	 */
 	MediaOperations mediaOperations();
 
 	/**
 	 * Returns the portion of the Instagram API that handles user operations
+	 * @return user operations
 	 */
 	UserOperations userOperations();
 

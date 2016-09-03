@@ -43,7 +43,7 @@ public class InstagramTemplate extends AbstractOAuth2ApiBinding implements Insta
 	 * Instagram's API. Some operations do not require OAuth authentication. A TwitterTemplate created with this constructor will support those operations.
 	 * Those operations requiring authentication will throw {@link BadCredentialsException}.
 	 * 
-	 * @param clientId
+	 * @param clientId the application's client ID
 	 */
 	public InstagramTemplate(String clientId) {
 		this(clientId, null, false);
@@ -94,19 +94,23 @@ public class InstagramTemplate extends AbstractOAuth2ApiBinding implements Insta
 				accessToken);
 	}
 
-	public TagOperations tagOperations() {
+	@Override
+  public TagOperations tagOperations() {
 		return tagOperations;
 	}
 
-	public LocationOperations locationOperations() {
+	@Override
+  public LocationOperations locationOperations() {
 		return locationOperations;
 	}
 
-	public MediaOperations mediaOperations() {
+	@Override
+  public MediaOperations mediaOperations() {
 		return mediaOperations;
 	}
 
-	public UserOperations userOperations() {
+	@Override
+  public UserOperations userOperations() {
 		return userOperations;
 	}
 

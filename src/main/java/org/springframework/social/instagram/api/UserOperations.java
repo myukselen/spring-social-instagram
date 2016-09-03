@@ -17,7 +17,7 @@ public interface UserOperations {
 	/**
 	 * Get basic information about a specific user
 	 * 
-	 * @param userId
+	 * @param userId user's ID
 	 * @return Instagram profile
 	 */
 	InstagramProfile getUser(long userId);
@@ -43,7 +43,7 @@ public interface UserOperations {
 	/**
 	 * Get recent media of a specific user
 	 * 
-	 * @param userId
+	 * @param userId user's ID
 	 * @return List of media
 	 */
 	PagedMediaList getRecentMedia(long userId);
@@ -51,15 +51,11 @@ public interface UserOperations {
 	/**
 	 * Get a range of recent media of a specific user
 	 * 
-	 * @param userId
+	 * @param userId user's ID
 	 * @param maxId
 	 *            Get media before this ID
 	 * @param minId
 	 *            Get media after this ID
-	 * @param minTimestamp
-	 *            Get media after this Unix timestamp
-	 * @param manTimestamp
-	 *            Get media before this Unix timestamp
 	 * @return List of media
 	 */
 	PagedMediaList getRecentMedia(long userId, long maxId, long minId);
@@ -67,7 +63,7 @@ public interface UserOperations {
 	/**
 	 * Search for users
 	 * 
-	 * @param query
+	 * @param query query
 	 * @return List of profiles
 	 */
 	List<InstagramProfile> search(String query);
@@ -75,7 +71,7 @@ public interface UserOperations {
 	/**
 	 * Get the list of users the specified user follows
 	 * 
-	 * @param userId
+	 * @param userId user's ID
 	 * @return List of profiles
 	 */
 	List<InstagramProfile> getFollows(long userId);
@@ -83,7 +79,7 @@ public interface UserOperations {
 	/**
 	 * Get the list of users the specified user is followed by
 	 * 
-	 * @param userId
+	 * @param userId user's ID
 	 * @return List of profiles
 	 */
 	List<InstagramProfile> getFollowedBy(long userId);
@@ -98,7 +94,7 @@ public interface UserOperations {
 	/**
 	 * Get information about the authenticated user's relationship (follow/following/etc) to another user
 	 * 
-	 * @param userId
+	 * @param userId user's ID
 	 * @return User relationship
 	 */
 	Relationship getRelationship(long userId);
@@ -106,42 +102,42 @@ public interface UserOperations {
 	/**
 	 * Send a request to follow the specified user
 	 * 
-	 * @param userId
+	 * @param userId user's ID
 	 */
 	void followUser(long userId);
 
 	/**
 	 * Stop following the specified user
 	 * 
-	 * @param userId
+	 * @param userId user's ID
 	 */
 	void unfollowUser(long userId);
 
 	/**
 	 * Block the specified user
 	 * 
-	 * @param userId
+	 * @param userId user's ID
 	 */
 	void blockUser(long userId);
 
 	/**
 	 * Unblock the specified user
 	 * 
-	 * @param userId
+	 * @param userId user's ID
 	 */
 	void unblockUser(long userId);
 
 	/**
 	 * Approve a user's request to follow the authenticated user
 	 * 
-	 * @param userId
+	 * @param userId user's ID
 	 */
 	void approveUser(long userId);
 
 	/**
 	 * Deny a user's request to follow the authenticated user
 	 * 
-	 * @param user
+	 * @param user user's ID
 	 */
 	void denyUser(long user);
 
