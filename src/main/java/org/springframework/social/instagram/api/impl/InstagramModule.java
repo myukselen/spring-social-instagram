@@ -17,6 +17,7 @@ import com.fasterxml.jackson.core.Version;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 
 public class InstagramModule extends SimpleModule {
+	private static final long serialVersionUID = 1912452314183749926L;
 
 	public InstagramModule() {
 		super(InstagramModule.class.getName(), new Version(1, 0, 0, null, "org.springframework.social", "spring-social-instagram"));

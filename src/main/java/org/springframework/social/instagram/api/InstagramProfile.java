@@ -2,6 +2,7 @@ package org.springframework.social.instagram.api;
 
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class InstagramProfile {
@@ -52,14 +53,20 @@ public class InstagramProfile {
 		return counts;
 	}
 
+	// do not serialize, can cause NPE
+	@JsonIgnore
 	public int getMediaCount() {
 		return counts.get("media");
 	}
 
+	// do not serialize, can cause NPE
+	@JsonIgnore
 	public int getFollowsCount() {
 		return counts.get("follows");
 	}
 
+	// do not serialize, can cause NPE
+	@JsonIgnore
 	public int getFollowedBy() {
 		return counts.get("followed_by");
 	}
