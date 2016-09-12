@@ -3,7 +3,8 @@ package org.springframework.social.instagram.api;
 import java.util.List;
 
 /**
- * Interface defining the operations for retrieving information about Instagram users and managing relationships amongst the authenticated user.
+ * Interface defining the operations for retrieving information about Instagram
+ * users and managing relationships amongst the authenticated user.
  */
 public interface UserOperations {
 
@@ -18,6 +19,7 @@ public interface UserOperations {
 	 * Get basic information about a specific user
 	 * 
 	 * @param userId
+	 *            user's ID
 	 * @return Instagram profile
 	 */
 	InstagramProfile getUser(long userId);
@@ -26,7 +28,10 @@ public interface UserOperations {
 	 * Get the first page of the authenticated user's feed
 	 * 
 	 * @return List of media
+	 * 
+	 * @deprecated use getRecentMedia
 	 */
+	@Deprecated
 	PagedMediaList getFeed();
 
 	/**
@@ -37,13 +42,35 @@ public interface UserOperations {
 	 * @param minId
 	 *            Get media after this ID
 	 * @return List of media
+	 * 
+	 * @deprecated use getRecentMedia
 	 */
+	@Deprecated
 	PagedMediaList getFeed(long maxId, long minId);
+
+	/**
+	 * Get recent media of a current user
+	 * 
+	 * @return List of media
+	 */
+	PagedMediaList getRecentMedia();
+
+	/**
+	 * Get a range of recent media of a current user
+	 * 
+	 * @param maxId
+	 *            Get media before this ID
+	 * @param minId
+	 *            Get media after this ID
+	 * @return List of media
+	 */
+	PagedMediaList getRecentMedia(long maxId, long minId);
 
 	/**
 	 * Get recent media of a specific user
 	 * 
 	 * @param userId
+	 *            user's ID
 	 * @return List of media
 	 */
 	PagedMediaList getRecentMedia(long userId);
@@ -52,14 +79,11 @@ public interface UserOperations {
 	 * Get a range of recent media of a specific user
 	 * 
 	 * @param userId
+	 *            user's ID
 	 * @param maxId
 	 *            Get media before this ID
 	 * @param minId
 	 *            Get media after this ID
-	 * @param minTimestamp
-	 *            Get media after this Unix timestamp
-	 * @param manTimestamp
-	 *            Get media before this Unix timestamp
 	 * @return List of media
 	 */
 	PagedMediaList getRecentMedia(long userId, long maxId, long minId);
@@ -68,6 +92,7 @@ public interface UserOperations {
 	 * Search for users
 	 * 
 	 * @param query
+	 *            query
 	 * @return List of profiles
 	 */
 	List<InstagramProfile> search(String query);
@@ -76,6 +101,7 @@ public interface UserOperations {
 	 * Get the list of users the specified user follows
 	 * 
 	 * @param userId
+	 *            user's ID
 	 * @return List of profiles
 	 */
 	List<InstagramProfile> getFollows(long userId);
@@ -84,21 +110,25 @@ public interface UserOperations {
 	 * Get the list of users the specified user is followed by
 	 * 
 	 * @param userId
+	 *            user's ID
 	 * @return List of profiles
 	 */
 	List<InstagramProfile> getFollowedBy(long userId);
 
 	/**
-	 * List the users who have requested the authenticated user's permission to follow
+	 * List the users who have requested the authenticated user's permission to
+	 * follow
 	 * 
 	 * @return List of profiles
 	 */
 	List<InstagramProfile> getRequestedBy();
 
 	/**
-	 * Get information about the authenticated user's relationship (follow/following/etc) to another user
+	 * Get information about the authenticated user's relationship
+	 * (follow/following/etc) to another user
 	 * 
 	 * @param userId
+	 *            user's ID
 	 * @return User relationship
 	 */
 	Relationship getRelationship(long userId);
@@ -107,6 +137,7 @@ public interface UserOperations {
 	 * Send a request to follow the specified user
 	 * 
 	 * @param userId
+	 *            user's ID
 	 */
 	void followUser(long userId);
 
@@ -114,6 +145,7 @@ public interface UserOperations {
 	 * Stop following the specified user
 	 * 
 	 * @param userId
+	 *            user's ID
 	 */
 	void unfollowUser(long userId);
 
@@ -121,6 +153,7 @@ public interface UserOperations {
 	 * Block the specified user
 	 * 
 	 * @param userId
+	 *            user's ID
 	 */
 	void blockUser(long userId);
 
@@ -128,6 +161,7 @@ public interface UserOperations {
 	 * Unblock the specified user
 	 * 
 	 * @param userId
+	 *            user's ID
 	 */
 	void unblockUser(long userId);
 
@@ -135,6 +169,7 @@ public interface UserOperations {
 	 * Approve a user's request to follow the authenticated user
 	 * 
 	 * @param userId
+	 *            user's ID
 	 */
 	void approveUser(long userId);
 
@@ -142,8 +177,10 @@ public interface UserOperations {
 	 * Deny a user's request to follow the authenticated user
 	 * 
 	 * @param user
+	 *            user's ID
 	 */
 	void denyUser(long user);
 
 	public static final String USERS_ENDPOINT = "users/";
+
 }

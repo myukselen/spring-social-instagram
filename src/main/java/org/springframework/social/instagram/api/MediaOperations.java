@@ -7,37 +7,37 @@ public interface MediaOperations {
 	/**
 	 * Create a comment on a media.
 	 * 
-	 * @param mediaId
-	 * @param text
+	 * @param mediaId media ID
+	 * @param text text
 	 */
 	void addComment(long mediaId, String text);
 
 	/**
 	 * Set a like on this media by the currently authenticated user.
 	 * 
-	 * @param mediaId
+	 * @param mediaId media ID
 	 */
 	void addLike(long mediaId);
 
 	/**
 	 * Remove a comment either on the authenticated user's media or authored by the authenticated user.
 	 * 
-	 * @param mediaId
-	 * @param commentId
+	 * @param mediaId media ID
+	 * @param commentId comment ID
 	 */
 	void deleteComment(long mediaId, long commentId);
 
 	/**
 	 * Remove a like on this media by the currently authenticated user.
 	 * 
-	 * @param mediaId
+	 * @param mediaId media ID
 	 */
 	void deleteLike(long mediaId);
 
 	/**
 	 * Get a full list of comments on a media.
 	 * 
-	 * @param mediaId
+	 * @param mediaId media ID
 	 * @return A list of comments
 	 */
 	List<Comment> getComments(long mediaId);
@@ -45,7 +45,7 @@ public interface MediaOperations {
 	/**
 	 * Get a list of users who have liked this media.
 	 * 
-	 * @param mediaId
+	 * @param mediaId media ID
 	 * @return A list of users
 	 */
 	List<InstagramProfile> getLikes(long mediaId);
@@ -53,7 +53,7 @@ public interface MediaOperations {
 	/**
 	 * Get information about a media object.
 	 * 
-	 * @param mediaId
+	 * @param mediaId media ID
 	 * @return Media information
 	 */
 	Media getMedia(long mediaId);
@@ -62,14 +62,16 @@ public interface MediaOperations {
 	 * Get a list of what media is most popular at the moment.
 	 * 
 	 * @return A list of media
+	 * @deprecated instagram has no such API
 	 */
+	@Deprecated
 	List<Media> getPopular();
 
 	/**
 	 * Search for media in a given area.
 	 * 
-	 * @param latitude
-	 * @param longitude
+	 * @param latitude latitude
+	 * @param longitude longitude
 	 * @return A list of media
 	 */
 	List<Media> search(double latitude, double longitude);
@@ -77,9 +79,9 @@ public interface MediaOperations {
 	/**
 	 * Search for media in a given area.
 	 * 
-	 * @param latitude
-	 * @param longitude
-	 * @param distance
+	 * @param latitude latitude
+	 * @param longitude longitude
+	 * @param distance distance
 	 * @return A list of media
 	 */
 	List<Media> search(double latitude, double longitude, int distance);
@@ -87,11 +89,11 @@ public interface MediaOperations {
 	/**
 	 * Search for media in a given area.
 	 * 
-	 * @param latitude
-	 * @param longitude
-	 * @param maxTimeStamp
-	 * @param minTimeStamp
-	 * @param distance
+	 * @param latitude latitude
+	 * @param longitude longitude
+	 * @param maxTimeStamp maxTimeStamp
+	 * @param minTimeStamp minTimeStamp
+	 * @param distance distance
 	 * @return A list of media
 	 */
 	List<Media> search(double latitude, double longitude, long maxTimeStamp, long minTimeStamp, int distance);

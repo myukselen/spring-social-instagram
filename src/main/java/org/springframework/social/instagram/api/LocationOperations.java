@@ -66,7 +66,7 @@ public interface LocationOperations {
 	/**
 	 * Search for a location by a FourSquare venue ID
 	 * 
-	 * @param String
+	 * @param foursquareId
 	 *            FourSquare venue ID
 	 * @return A list of locations
 	 */
